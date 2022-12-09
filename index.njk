@@ -5,10 +5,21 @@ eleventyNavigation:
   order: 1
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+<h1>
+  freshly brewed
+  <span class="right"><a href="{{ '/posts/' | url }}">all posts</a></span>
+</h1>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<div id="items">
+    {% for post in postslist | reverse %}
+    {% include "card.njk" %}
+    {% endfor %}
+</div>
+
+{# {% include "postslist.njk" %} #}
+<div style="text-align:center">
+  <h3><a href="{{ '/tags/' | url }}">view by tags</a></h3>
+</div>

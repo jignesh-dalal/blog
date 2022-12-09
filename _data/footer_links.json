@@ -12,6 +12,6 @@
   {
     "title": "Atom RSS feed",
     "image": "rss.svg",
-    "url": "feed/feed.xml"
+    "url": "/blog/feed/feed.xml"
   }
 ]
