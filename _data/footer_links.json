@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Github profile",
+    "image": "github.svg",
+    "url": "https://github.com/jignesh-dalal"
+  },
+  {
+    "title": "Twitter profile",
+    "image": "twitter.svg",
+    "url": "https://twitter.com/jiigneshdalal"
+  },
+  {
+    "title": "Atom RSS feed",
+    "image": "rss.svg",
+    "url": "feed/feed.xml"
+  }
+]

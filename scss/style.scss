@@ -1,0 +1,69 @@
+@import "../theme/jekyll-theme-slate.scss";
+
+:root {
+    --main-color: #333;
+}
+
+body {
+    line-height: 1.75;
+}
+
+header,
+footer {
+    text-align: center;
+}
+
+#header_wrap,
+#main_content_wrap {
+    background: white;
+    border: 0;
+}
+
+#header_wrap .inner {
+    padding: 1em 0 0 0;
+}
+
+#main_content {
+    max-width: 57em;
+    padding: 1em 1em 2.5em 1em;
+}
+
+#footer_wrap {
+    background: #212121;
+}
+
+#footer_wrap .inner {
+    max-width: 100%;
+    padding: 3em 1em;
+}
+
+img {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+/* Header content ---------------- */
+
+#header_title {
+    margin-top: 0.1em;
+}
+
+/* Footer content ---------------- */
+
+.license {
+    clear: both;
+    color: white;
+    display: block;
+    margin-top: 40px;
+}

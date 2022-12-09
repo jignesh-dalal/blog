@@ -1,0 +1,3 @@
+{% for link in footer_links %}
+    <a href="{{ link.url }}" title="{{ link.title }}"><img src="{{ '/img/footer/' | url }}{{ link.image }}" alt=""></a>
+{% endfor %}

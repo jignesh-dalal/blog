@@ -11,7 +11,6 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -77,6 +76,7 @@ module.exports = function(eleventyConfig) {
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
+    files: './_site/css/**/*.css',
     callbacks: {
       ready: function(err, browserSync) {
         const content_404 = fs.readFileSync('_site/404.html');
