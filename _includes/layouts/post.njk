@@ -2,8 +2,44 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
 
+<div id="post_content">
+    <h1>{{ title }}</h1>
+    {# <img id="post_image" src="{{ page.image.src }}" alt=""> #}
+    <div id="under_cover">
+        <span>Published: <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></span>
+        <span>
+          {%- for tag in tags | filterTagList %}
+          {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+          <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+          {%- endfor %}  
+        </span>
+        {# {% if page.last_modified_at %}<br/>Last updated: {{ page.last_modified_at | date: "%e %B %Y" }}{% endif %} #}
+    </div>
+    {{ content | safe }}
+</div>
+
+{%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+<div class="pagination">
+    <span class="next_post">
+        {% if nextPost %}
+            <a href="{{ nextPost.url | url }}" aria-label="Next post: {{ nextPost.data.title }}">&laquo; {{ nextPost.data.title }}</a>
+        {% else %}
+            <a href="/" aria-label="Go to home page">&laquo; Home page</a>
+        {% endif %}
+    </span>
+    <span class="previous_post">
+        {% if previousPost %}
+            <a href="{{ previousPost.url | url }}" aria-label="Previous post: {{ previousPost.data.title }}">{{ previousPost.data.title }} &raquo;</a>
+        {% else %}
+            <a href="/" aria-label="Go to home page">Home page &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{# 
+<h1>{{ title }}</h1>
 <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 {%- for tag in tags | filterTagList %}
 {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
@@ -22,4 +58,4 @@ templateClass: tmpl-post
   {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
 </ul>
 {%- endif %}
-{%- endif %}
+{%- endif %} #}

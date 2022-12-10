@@ -1,5 +1,8 @@
 {
   "tags": [
     "posts"
-  ]
+  ],
+  "date": "Created",
+  "permalink": "/{{ page.date | dateYMD }}/{{ page.fileSlug }}/",
+  "layout": "layouts/post.njk"
 }
