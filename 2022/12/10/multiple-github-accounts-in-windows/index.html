@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple GitHub Accounts On Windows</title>
+    <meta name="description" content="A guide to configure multiple GitHub accounts on Windows.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/blog/css/style.css">
+    <link rel="alternate" href="/blog/feed/feed.xml" type="application/atom+xml" title="Jignesh H Dalal">
+    <link rel="alternate" href="/blog/feed/feed.json" type="application/json" title="Jignesh H Dalal">
+  </head>
+  <body>
+     <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a href="/blog" aria-label="Home"><img src="/blog/img/header/profile.svg" alt=""></a>
+<div id="header_title">Jignesh H Dalal</div>
+
+      </header>
+    </div>
+
+     <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+<div id="post_content">
+    <h1>Multiple GitHub Accounts On Windows</h1>
+    
+    <div id="under_cover">
+        <span>Published: <time datetime="2022-12-10">10 Dec 2022</time></span>
+        <span>
+          <a href="/blog/tags/git/" class="post-tag">git</a>
+          <a href="/blog/tags/tech/" class="post-tag">tech</a>  
+        </span>
+        
+    </div>
+    <h2 id="when-git-is-not-configured-for-multiple-accounts" tabindex="-1">When Git is not Configured for Multiple Accounts <a class="direct-link" href="#when-git-is-not-configured-for-multiple-accounts" aria-hidden="true">#</a></h2>
+<p>The first time one pushes a local repo of his/her to the corresponding remote repo in a given account on GitHub, a Personal Access Token in the form of a generic credential is created using his/her password for that particular GitHub account(see the image below). Notice that the credential is tied to GitHub URL and not the URL of the repo that was pushed upstream.</p>
+<p><img src="/blog/img/posts/multiple-github-accounts-in-windows/credentials-for-1st-github-push.png" alt="Credentials Manager"></p>
+<p>However, if one were to attempt to push some code from a local repo up to a remote repo that is tied to another GitHub account other than the one used at first, (s)he would get the <code>Permission denied</code> error depicted in the image below.</p>
+<p><img src="/blog/img/posts/multiple-github-accounts-in-windows/remote-push-error-on-2nd-github-account.png" alt="Permission denied"></p>
+<p>At this point, one can choose to go to Credential Manager, edit the credential there by changing the password to that of the new (or other) GitHub account (s)he is trying to push to. Or, (s)he could choose to delete the generic credential for github there and then, run the git push command again so Git would ask for the GitHub login credentials of the account (s)he is trying to push to.</p>
+<p>However, this approach can be rather cumbersome in that you have to be updating the github credentials everytime an account different from the current one on your machine is to be connected to. The preferred solution is to configure Git to allow multiple GitHub accounts on the same machine.</p>
+<h2 id="simple-steps-to-configure-multiple-github-accounts-on-windows" tabindex="-1">Simple steps to configure multiple GitHub accounts on Windows <a class="direct-link" href="#simple-steps-to-configure-multiple-github-accounts-on-windows" aria-hidden="true">#</a></h2>
+<ol>
+<li>Move all your work repositories to a single directory like c:\repos\work</li>
+<li>Move all your personal repositories to a single directory like c:\repos\personal</li>
+<li>Create a .gitconfig-work file in the same directory as your .gitconfig file. This can be located under c:\Users{username}\ folder on a Windows PC.</li>
+</ol>
+<pre><code>[user]
+  name = John Doe
+  email = {Work Email Here}
+[credential]
+  helper = manager-core
+</code></pre>
+<ol start="4">
+<li>Create a .gitconfig-personal file in the same directory as your .gitconfig file.</li>
+</ol>
+<pre><code>[user]
+  name = John Doe
+  email = {Personal Email Here}
+[credential &quot;https://github.com&quot;]
+  helper = wincred
+  useHttpPath = true
+</code></pre>
+<blockquote>
+<p><em>the useHttpPath argument for the credential manager is key as it will will prompt you for credentials for each repository instead of using a single credential for all repositories on a given platform (e.g. GitHub, GitLab, BitBucket, etc)</em></p>
+</blockquote>
+<ol start="5">
+<li>Update your .gitconfig file in your home directory to have an <code>includeif</code> to change which git config pull in based in kn the directory.</li>
+</ol>
+<pre><code>[includeIf &quot;gitdir:C:/TFS/&quot;]
+  path = .gitconfig-work
+[includeIf &quot;gitdir:C:/MY_DATA/MyData/Repos/&quot;]
+  path = .gitconfig-personal
+[core]
+  longpaths = true
+</code></pre>
+<p>Now your git configuration will change based on the directory your git repository. This ensures that the right account is associated to your commits. As well as it will prompt you for your GitHub credentials per repository url.</p>
+
+</div>
+<div class="pagination">
+    <span class="next_post">
+        
+            <a href="/blog/2022/12/10/how-i-made-this-blog/" aria-label="Next post: How I Made This Blog?">&laquo; How I Made This Blog?</a>
+        
+    </span>
+    <span class="previous_post">
+        
+            <a href="/" aria-label="Go to home page">Home page &raquo;</a>
+        
+    </span>
+</div>
+
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+    <a href="https://github.com/jignesh-dalal" title="Github profile"><img src="/blog/img/footer/github.svg" alt=""></a>
+
+    <a href="https://twitter.com/jiigneshdalal" title="Twitter profile"><img src="/blog/img/footer/twitter.svg" alt=""></a>
+
+    <a href="/blog/feed/feed.xml" title="Atom RSS feed"><img src="/blog/img/footer/rss.svg" alt=""></a>
+
+
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
