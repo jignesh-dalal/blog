@@ -2,9 +2,9 @@
   "title": "Jignesh H Dalal",
   "url": "https://example.com/",
   "language": "en",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "description": "I am writing about my experiences in Finance and Technology space",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "I am writing about my experiences in Finance and Technology space",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://example.com/"
