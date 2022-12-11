@@ -1,13 +1,13 @@
 {
-  "name": "eleventy-base-blog",
-  "version": "7.0.0",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "name": "my-blog",
+  "version": "1.0.0",
+  "description": "I am writing about my experiences in Finance and Technology space",
   "scripts": {
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "watch:sass": "sass scss:_site/css --watch",
-    "build:sass": "sass scss:_site/css",
+    "watch:sass": "sass css/scss:_site/css --watch",
+    "build:sass": "sass css/scss:_site/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
@@ -15,18 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/11ty/eleventy-base-blog.git"
+    "url": "https://github.com/jignesh-dalal/blog.git"
   },
   "author": {
-    "name": "Zach Leatherman",
-    "email": "zachleatherman@gmail.com",
-    "url": "https://zachleat.com/"
+    "name": "Jignesh H Dalal",
+    "email": "jignesh.h.dalal@gmail.com",
+    "url": "https://jignesh-dalal.github.io/"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/11ty/eleventy-base-blog/issues"
-  },
-  "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-navigation": "^0.3.3",

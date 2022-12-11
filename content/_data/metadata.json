@@ -1,21 +1,21 @@
 {
   "title": "Jignesh H Dalal",
-  "url": "https://example.com/",
+  "url": "https://jignesh-dalal.github.io/",
   "language": "en",
   "description": "I am writing about my experiences in Finance and Technology space",
   "feed": {
     "subtitle": "I am writing about my experiences in Finance and Technology space",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https:/jignesh-dalal.github.io/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://jignesh-dalal.github.io/blog/feed/feed.json"
   },
   "author": {
     "name": "Jignesh Dalal",
     "email": "jignesh.h.dalal@example.com",
-    "url": "https://example.com/about-me/"
+    "url": "https://jignesh-dalal.github.io/"
   }
 }
