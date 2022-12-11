@@ -2,52 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://example.com/blog/about/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/posts/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/posts/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/page-list/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/page-list/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/11/multiple-github-accounts-in-windows/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/2022/12/11/multiple-github-accounts-in-windows/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/11/how-i-made-this-blog/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/2022/12/11/how-i-made-this-blog/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/11/blog-theme/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/2022/12/11/blog-theme/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/tags/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/tags/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/tags/git/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/blog/tags/git/</loc>
-    <lastmod>2022-12-11</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/blog/tags/tech/</loc>
+    <loc>https://jignesh-dalal.github.io/blog/tags/tech/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
 </urlset>
