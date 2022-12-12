@@ -5,7 +5,7 @@
 	
 	<link href="https://jignesh-dalal.github.io/blog/feed/feed.xml" rel="self"/>
 	<link href="https://jignesh-dalal.github.io/"/>
-	<updated>2022-12-12T12:52:36Z</updated>
+	<updated>2022-12-10T00:00:00Z</updated>
 	<id>https:/jignesh-dalal.github.io/</id>
 	<author>
 		<name>Jignesh Dalal</name>
@@ -13,25 +13,122 @@
 	</author>
 	
 	<entry>
+		<title>How I Made This Blog?</title>
+		<link href="https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/"/>
+		<updated>2022-12-10T00:00:00Z</updated>
+		<id>https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/</id>
+		<content type="html">&lt;h2 id=&quot;requirement&quot; tabindex=&quot;-1&quot;&gt;Requirement &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#requirement&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I simply loved the idea of GitHub Pages which when combined with Jekyll, a static site generator, can help generate a lightweight blogging site. Unfortunately, Jekyll is not officially supported for Windows and the requirement of Ruby adds to the learning curve if one wishes to tread the unofficial route.&lt;/p&gt;
+&lt;p&gt;Being somewhat a lazy (read laid-back) person and not a professional writer, I need to keep the whole blogging experience simple enough to help me continue with the journey. And for someone who is already familiar with GitHub being a developer, here is the 1-2-3 requirement:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a new Markdown file for the blog post.&lt;/li&gt;
+&lt;li&gt;Add the blog contents.&lt;/li&gt;
+&lt;li&gt;Push it to git repository with GitHub Actions performing the heavy lifting of updating the blog hosted under GitHub Pages.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;implementation&quot; tabindex=&quot;-1&quot;&gt;Implementation &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#implementation&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Without further ado, I ended up using following for my blog:&lt;/p&gt;
+&lt;h3 id=&quot;eleventy&quot; tabindex=&quot;-1&quot;&gt;&lt;a href=&quot;https://www.11ty.dev/docs/&quot;&gt;Eleventy&lt;/a&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#eleventy&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Eleventy is NodeJS based tool as it uses JavaScript in NodeJS to transform templates into content. It is not a JavaScript framework as it does not recommend nor force your HTML to include any Eleventy-specific client-side JavaScript.&lt;/p&gt;
+&lt;p&gt;Bootstrapped my &lt;a href=&quot;https://github.com/jignesh-dalal/blog&quot;&gt;blog&lt;/a&gt; repo with &lt;a href=&quot;https://github.com/11ty/eleventy-base-blog&quot;&gt;eleventy-base-blog&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;getting-started-with-eleventy&quot; tabindex=&quot;-1&quot;&gt;Getting started with Eleventy &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#getting-started-with-eleventy&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/&quot;&gt;https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.filamentgroup.com/lab/build-a-blog/&quot;&gt;https://www.filamentgroup.com/lab/build-a-blog/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://24ways.org/2018/turn-jekyll-up-to-eleventy/&quot;&gt;https://24ways.org/2018/turn-jekyll-up-to-eleventy/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/&quot;&gt;https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;slate-theme&quot; tabindex=&quot;-1&quot;&gt;&lt;a href=&quot;https://github.com/pages-themes/slate&quot;&gt;Slate theme&lt;/a&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#slate-theme&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Slate is a &lt;strong&gt;Jekyll&lt;/strong&gt; theme for GitHub Pages.&lt;/p&gt;
+&lt;p&gt;Being a &lt;strong&gt;Jekyll&lt;/strong&gt; theme for GitHub Pages, this required to be ported for use in Eleventy which was done as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Copied over .sass files for the Slate theme.&lt;/li&gt;
+&lt;li&gt;Configured my &lt;a href=&quot;https://github.com/jignesh-dalal/blog&quot;&gt;blog&lt;/a&gt; repo to perform sass to css transformation using the &lt;code&gt;sass&lt;/code&gt; npm package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;deploy-to-github-pages-with-github-actions&quot; tabindex=&quot;-1&quot;&gt;Deploy to GitHub Pages with GitHub Actions &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#deploy-to-github-pages-with-github-actions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/&quot;&gt;https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&quot;&gt;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/&quot;&gt;https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;references&quot; tabindex=&quot;-1&quot;&gt;References &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/#references&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://eleventy-chirpy-blog-template.netlify.app/&quot;&gt;https://eleventy-chirpy-blog-template.netlify.app/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://rachelcarmena.github.io/&quot;&gt;https://rachelcarmena.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Multiple GitHub Accounts On Windows</title>
+		<link href="https://jignesh-dalal.github.io/blog/2022/12/08/multiple-github-accounts-in-windows/"/>
+		<updated>2022-12-08T00:00:00Z</updated>
+		<id>https://jignesh-dalal.github.io/blog/2022/12/08/multiple-github-accounts-in-windows/</id>
+		<content type="html">&lt;h2 id=&quot;when-git-is-not-configured-for-multiple-accounts&quot; tabindex=&quot;-1&quot;&gt;When Git is not Configured for Multiple Accounts &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/08/multiple-github-accounts-in-windows/#when-git-is-not-configured-for-multiple-accounts&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The first time one pushes a local repo of his/her to the corresponding remote repo in a given account on GitHub, a Personal Access Token in the form of a generic credential is created using his/her password for that particular GitHub account(see the image below). Notice that the credential is tied to GitHub URL and not the URL of the repo that was pushed upstream.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jignesh-dalal.github.io/blog/img/posts/multiple-github-accounts-in-windows/credentials-for-1st-github-push.png&quot; alt=&quot;Credentials Manager&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;However, if one were to attempt to push some code from a local repo up to a remote repo that is tied to another GitHub account other than the one used at first, (s)he would get the &lt;code&gt;Permission denied&lt;/code&gt; error depicted in the image below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jignesh-dalal.github.io/blog/img/posts/multiple-github-accounts-in-windows/remote-push-error-on-2nd-github-account.png&quot; alt=&quot;Permission denied&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;At this point, one can choose to go to Credential Manager, edit the credential there by changing the password to that of the new (or other) GitHub account (s)he is trying to push to. Or, (s)he could choose to delete the generic credential for github there and then, run the git push command again so Git would ask for the GitHub login credentials of the account (s)he is trying to push to.&lt;/p&gt;
+&lt;p&gt;However, this approach can be rather cumbersome in that you have to be updating the github credentials everytime an account different from the current one on your machine is to be connected to. The preferred solution is to configure Git to allow multiple GitHub accounts on the same machine.&lt;/p&gt;
+&lt;h2 id=&quot;simple-steps-to-configure-multiple-github-accounts-on-windows&quot; tabindex=&quot;-1&quot;&gt;Simple steps to configure multiple GitHub accounts on Windows &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/08/multiple-github-accounts-in-windows/#simple-steps-to-configure-multiple-github-accounts-on-windows&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Move all your work repositories to a single directory like c:\repos\work&lt;/li&gt;
+&lt;li&gt;Move all your personal repositories to a single directory like c:\repos\personal&lt;/li&gt;
+&lt;li&gt;Create a .gitconfig-work file in the same directory as your .gitconfig file. This can be located under c:\Users\{username}\ folder on a Windows PC.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;[user]
+  name = John Doe
+  email = {Work Email Here}
+[credential]
+  helper = manager-core
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Create a .gitconfig-personal file in the same directory as your .gitconfig file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;[user]
+  name = John Doe
+  email = {Personal Email Here}
+[credential &amp;quot;https://github.com&amp;quot;]
+  helper = wincred
+  useHttpPath = true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;the useHttpPath argument for the credential manager is key as it will will prompt you for credentials for each repository instead of using a single credential for all repositories on a given platform (e.g. GitHub, GitLab, BitBucket, etc)&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Update your .gitconfig file in your home directory to have an &lt;code&gt;includeif&lt;/code&gt; to change which git config pull in based in kn the directory.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;[includeIf &amp;quot;gitdir:C:/TFS/&amp;quot;]
+  path = .gitconfig-work
+[includeIf &amp;quot;gitdir:C:/MY_DATA/MyData/Repos/&amp;quot;]
+  path = .gitconfig-personal
+[core]
+  longpaths = true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now your git configuration will change based on the directory your git repository. This ensures that the right account is associated to your commits. As well as it will prompt you for your GitHub credentials per repository url.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
 		<title>Blog Theme</title>
-		<link href="https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/"/>
-		<updated>2022-12-12T12:52:36Z</updated>
-		<id>https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/</id>
+		<link href="https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/"/>
+		<updated>2022-12-07T00:00:00Z</updated>
+		<id>https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/</id>
 		<content type="html">&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;s&gt;strikethrough&lt;/s&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/another-page.html&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/another-page.html&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There should be whitespace between paragraphs.&lt;/p&gt;
 &lt;p&gt;There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.&lt;/p&gt;
-&lt;h1 id=&quot;header-1&quot; tabindex=&quot;-1&quot;&gt;Header 1 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#header-1&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;header-1&quot; tabindex=&quot;-1&quot;&gt;Header 1 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#header-1&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.&lt;/p&gt;
-&lt;h2 id=&quot;header-2&quot; tabindex=&quot;-1&quot;&gt;Header 2 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#header-2&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;header-2&quot; tabindex=&quot;-1&quot;&gt;Header 2 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#header-2&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This is a blockquote following a header.&lt;/p&gt;
 &lt;p&gt;When something is important enough, you do it even if the odds are not in your favor.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;header-3&quot; tabindex=&quot;-1&quot;&gt;Header 3 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#header-3&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;header-3&quot; tabindex=&quot;-1&quot;&gt;Header 3 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#header-3&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Javascript code with syntax highlighting.&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  dateformat&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;i18n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;./lang/&#39;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; l&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Ruby code with syntax highlighting&lt;/span&gt;&lt;br /&gt;GitHubPages&lt;span class=&quot;token double-colon punctuation&quot;&gt;::&lt;/span&gt;Dependencies&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;gems&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;gem&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; version&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;br /&gt;  s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;add_dependency&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gem&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string-literal&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;= &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;token content&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;header-4&quot; tabindex=&quot;-1&quot;&gt;Header 4 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#header-4&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;header-4&quot; tabindex=&quot;-1&quot;&gt;Header 4 &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#header-4&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
 &lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
@@ -75,23 +172,23 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;there-s-a-horizontal-rule-below-this&quot; tabindex=&quot;-1&quot;&gt;There&#39;s a horizontal rule below this. &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#there-s-a-horizontal-rule-below-this&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;there-s-a-horizontal-rule-below-this&quot; tabindex=&quot;-1&quot;&gt;There&#39;s a horizontal rule below this. &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#there-s-a-horizontal-rule-below-this&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;hr /&gt;
-&lt;h3 id=&quot;here-is-an-unordered-list&quot; tabindex=&quot;-1&quot;&gt;Here is an unordered list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#here-is-an-unordered-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;here-is-an-unordered-list&quot; tabindex=&quot;-1&quot;&gt;Here is an unordered list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#here-is-an-unordered-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Item foo&lt;/li&gt;
 &lt;li&gt;Item bar&lt;/li&gt;
 &lt;li&gt;Item baz&lt;/li&gt;
 &lt;li&gt;Item zip&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;and-an-ordered-list&quot; tabindex=&quot;-1&quot;&gt;And an ordered list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#and-an-ordered-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;and-an-ordered-list&quot; tabindex=&quot;-1&quot;&gt;And an ordered list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#and-an-ordered-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Item one&lt;/li&gt;
 &lt;li&gt;Item two&lt;/li&gt;
 &lt;li&gt;Item three&lt;/li&gt;
 &lt;li&gt;Item four&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;and-a-nested-list&quot; tabindex=&quot;-1&quot;&gt;And a nested list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#and-a-nested-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;and-a-nested-list&quot; tabindex=&quot;-1&quot;&gt;And a nested list: &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#and-a-nested-list&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;level 1 item
 &lt;ul&gt;
@@ -119,11 +216,11 @@
 &lt;/li&gt;
 &lt;li&gt;level 1 item&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;small-image&quot; tabindex=&quot;-1&quot;&gt;Small image &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#small-image&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;small-image&quot; tabindex=&quot;-1&quot;&gt;Small image &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#small-image&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.githubassets.com/images/icons/emoji/octocat.png&quot; alt=&quot;Octocat&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;large-image&quot; tabindex=&quot;-1&quot;&gt;Large image &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#large-image&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;large-image&quot; tabindex=&quot;-1&quot;&gt;Large image &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#large-image&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://guides.github.com/activities/hello-world/branching.png&quot; alt=&quot;Branching&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot; tabindex=&quot;-1&quot;&gt;Definition lists can be used with HTML syntax. &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/#definition-lists-can-be-used-with-html-syntax&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;definition-lists-can-be-used-with-html-syntax&quot; tabindex=&quot;-1&quot;&gt;Definition lists can be used with HTML syntax. &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/#definition-lists-can-be-used-with-html-syntax&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;dl&gt;
 &lt;dt&gt;Name&lt;/dt&gt;
 &lt;dd&gt;Godzilla&lt;/dd&gt;
@@ -138,103 +235,6 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;The final element.
 &lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
-	
-	<entry>
-		<title>How I Made This Blog?</title>
-		<link href="https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/"/>
-		<updated>2022-12-12T12:52:36Z</updated>
-		<id>https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/</id>
-		<content type="html">&lt;h2 id=&quot;requirement&quot; tabindex=&quot;-1&quot;&gt;Requirement &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#requirement&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;I simply loved the idea of GitHub Pages which when combined with Jekyll, a static site generator, can help generate a lightweight blogging site. Unfortunately, Jekyll is not officially supported for Windows and the requirement of Ruby adds to the learning curve if one wishes to tread the unofficial route.&lt;/p&gt;
-&lt;p&gt;Being somewhat a lazy (read laid-back) person and not a professional writer, I need to keep the whole blogging experience simple enough to help me continue with the journey. And for someone who is already familiar with GitHub being a developer, here is the 1-2-3 requirement:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Create a new Markdown file for the blog post.&lt;/li&gt;
-&lt;li&gt;Add the blog contents.&lt;/li&gt;
-&lt;li&gt;Push it to git repository with GitHub Actions performing the heavy lifting of updating the blog hosted under GitHub Pages.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;implementation&quot; tabindex=&quot;-1&quot;&gt;Implementation &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#implementation&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Without further ado, I ended up using following for my blog:&lt;/p&gt;
-&lt;h3 id=&quot;eleventy&quot; tabindex=&quot;-1&quot;&gt;&lt;a href=&quot;https://www.11ty.dev/docs/&quot;&gt;Eleventy&lt;/a&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#eleventy&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Eleventy is NodeJS based tool as it uses JavaScript in NodeJS to transform templates into content. It is not a JavaScript framework as it does not recommend nor force your HTML to include any Eleventy-specific client-side JavaScript.&lt;/p&gt;
-&lt;p&gt;Bootstrapped my &lt;a href=&quot;https://github.com/jignesh-dalal/blog&quot;&gt;blog&lt;/a&gt; repo with &lt;a href=&quot;https://github.com/11ty/eleventy-base-blog&quot;&gt;eleventy-base-blog&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&quot;getting-started-with-eleventy&quot; tabindex=&quot;-1&quot;&gt;Getting started with Eleventy &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#getting-started-with-eleventy&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/&quot;&gt;https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.filamentgroup.com/lab/build-a-blog/&quot;&gt;https://www.filamentgroup.com/lab/build-a-blog/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://24ways.org/2018/turn-jekyll-up-to-eleventy/&quot;&gt;https://24ways.org/2018/turn-jekyll-up-to-eleventy/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/&quot;&gt;https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;slate-theme&quot; tabindex=&quot;-1&quot;&gt;&lt;a href=&quot;https://github.com/pages-themes/slate&quot;&gt;Slate theme&lt;/a&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#slate-theme&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Slate is a &lt;strong&gt;Jekyll&lt;/strong&gt; theme for GitHub Pages.&lt;/p&gt;
-&lt;p&gt;Being a &lt;strong&gt;Jekyll&lt;/strong&gt; theme for GitHub Pages, this required to be ported for use in Eleventy which was done as follows:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Copied over .sass files for the Slate theme.&lt;/li&gt;
-&lt;li&gt;Configured my &lt;a href=&quot;https://github.com/jignesh-dalal/blog&quot;&gt;blog&lt;/a&gt; repo to perform sass to css transformation using the &lt;code&gt;sass&lt;/code&gt; npm package.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;deploy-to-github-pages-with-github-actions&quot; tabindex=&quot;-1&quot;&gt;Deploy to GitHub Pages with GitHub Actions &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#deploy-to-github-pages-with-github-actions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/&quot;&gt;https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&quot;&gt;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/&quot;&gt;https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;references&quot; tabindex=&quot;-1&quot;&gt;References &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/#references&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://eleventy-chirpy-blog-template.netlify.app/&quot;&gt;https://eleventy-chirpy-blog-template.netlify.app/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://rachelcarmena.github.io/&quot;&gt;https://rachelcarmena.github.io/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-	</entry>
-	
-	<entry>
-		<title>Multiple GitHub Accounts On Windows</title>
-		<link href="https://jignesh-dalal.github.io/blog/2022/12/12/multiple-github-accounts-in-windows/"/>
-		<updated>2022-12-12T12:52:36Z</updated>
-		<id>https://jignesh-dalal.github.io/blog/2022/12/12/multiple-github-accounts-in-windows/</id>
-		<content type="html">&lt;h2 id=&quot;when-git-is-not-configured-for-multiple-accounts&quot; tabindex=&quot;-1&quot;&gt;When Git is not Configured for Multiple Accounts &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/multiple-github-accounts-in-windows/#when-git-is-not-configured-for-multiple-accounts&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;The first time one pushes a local repo of his/her to the corresponding remote repo in a given account on GitHub, a Personal Access Token in the form of a generic credential is created using his/her password for that particular GitHub account(see the image below). Notice that the credential is tied to GitHub URL and not the URL of the repo that was pushed upstream.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://jignesh-dalal.github.io/blog/img/posts/multiple-github-accounts-in-windows/credentials-for-1st-github-push.png&quot; alt=&quot;Credentials Manager&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;However, if one were to attempt to push some code from a local repo up to a remote repo that is tied to another GitHub account other than the one used at first, (s)he would get the &lt;code&gt;Permission denied&lt;/code&gt; error depicted in the image below.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://jignesh-dalal.github.io/blog/img/posts/multiple-github-accounts-in-windows/remote-push-error-on-2nd-github-account.png&quot; alt=&quot;Permission denied&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;At this point, one can choose to go to Credential Manager, edit the credential there by changing the password to that of the new (or other) GitHub account (s)he is trying to push to. Or, (s)he could choose to delete the generic credential for github there and then, run the git push command again so Git would ask for the GitHub login credentials of the account (s)he is trying to push to.&lt;/p&gt;
-&lt;p&gt;However, this approach can be rather cumbersome in that you have to be updating the github credentials everytime an account different from the current one on your machine is to be connected to. The preferred solution is to configure Git to allow multiple GitHub accounts on the same machine.&lt;/p&gt;
-&lt;h2 id=&quot;simple-steps-to-configure-multiple-github-accounts-on-windows&quot; tabindex=&quot;-1&quot;&gt;Simple steps to configure multiple GitHub accounts on Windows &lt;a class=&quot;direct-link&quot; href=&quot;https://jignesh-dalal.github.io/blog/2022/12/12/multiple-github-accounts-in-windows/#simple-steps-to-configure-multiple-github-accounts-on-windows&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Move all your work repositories to a single directory like c:\repos\work&lt;/li&gt;
-&lt;li&gt;Move all your personal repositories to a single directory like c:\repos\personal&lt;/li&gt;
-&lt;li&gt;Create a .gitconfig-work file in the same directory as your .gitconfig file. This can be located under c:\Users\{username}\ folder on a Windows PC.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;[user]
-  name = John Doe
-  email = {Work Email Here}
-[credential]
-  helper = manager-core
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;Create a .gitconfig-personal file in the same directory as your .gitconfig file.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;[user]
-  name = John Doe
-  email = {Personal Email Here}
-[credential &amp;quot;https://github.com&amp;quot;]
-  helper = wincred
-  useHttpPath = true
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;the useHttpPath argument for the credential manager is key as it will will prompt you for credentials for each repository instead of using a single credential for all repositories on a given platform (e.g. GitHub, GitLab, BitBucket, etc)&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&quot;5&quot;&gt;
-&lt;li&gt;Update your .gitconfig file in your home directory to have an &lt;code&gt;includeif&lt;/code&gt; to change which git config pull in based in kn the directory.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;[includeIf &amp;quot;gitdir:C:/TFS/&amp;quot;]
-  path = .gitconfig-work
-[includeIf &amp;quot;gitdir:C:/MY_DATA/MyData/Repos/&amp;quot;]
-  path = .gitconfig-personal
-[core]
-  longpaths = true
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now your git configuration will change based on the directory your git repository. This ensures that the right account is associated to your commits. As well as it will prompt you for your GitHub credentials per repository url.&lt;/p&gt;
 </content>
 	</entry>
 </feed>

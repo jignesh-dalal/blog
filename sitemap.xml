@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/07/blog-theme/</loc>
+    <lastmod>2022-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/08/multiple-github-accounts-in-windows/</loc>
+    <lastmod>2022-12-08</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jignesh-dalal.github.io/blog/2022/12/10/how-i-made-this-blog/</loc>
+    <lastmod>2022-12-10</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jignesh-dalal.github.io/blog/posts/</loc>
     <lastmod>2022-12-12</lastmod>
   </url>
@@ -13,21 +28,6 @@
   
   <url>
     <loc>https://jignesh-dalal.github.io/blog/page-list/</loc>
-    <lastmod>2022-12-12</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jignesh-dalal.github.io/blog/2022/12/12/multiple-github-accounts-in-windows/</loc>
-    <lastmod>2022-12-12</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jignesh-dalal.github.io/blog/2022/12/12/how-i-made-this-blog/</loc>
-    <lastmod>2022-12-12</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jignesh-dalal.github.io/blog/2022/12/12/blog-theme/</loc>
     <lastmod>2022-12-12</lastmod>
   </url>
   
