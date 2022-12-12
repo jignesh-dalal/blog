@@ -6,12 +6,13 @@
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx @11ty/eleventy",
+    "clean": "npx rimraf ./_site",
     "watch:sass": "sass css/scss:_site/css --watch",
     "build:sass": "sass css/scss:_site/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
-    "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm run build:eleventy && npm run build:sass"
+    "start": "npm-run-all clean build:sass --parallel watch:*",
+    "build": "npm-run-all clean build:sass build:eleventy"
   },
   "repository": {
     "type": "git",

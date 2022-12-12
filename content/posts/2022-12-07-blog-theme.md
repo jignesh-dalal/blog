@@ -1,4 +1,5 @@
 ---
+date: 2022-12-07
 title: Blog Theme 
 description: My blog uses Slate theme which is a theme for GitHub Pages.
 tags:

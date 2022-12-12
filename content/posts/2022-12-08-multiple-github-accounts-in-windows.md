@@ -1,6 +1,7 @@
 ---
+date: 2022-12-08
 title: Multiple GitHub Accounts On Windows
-description: A guide to configure multiple GitHub accounts on Windows.
+description: A guide with simple steps to configure multiple GitHub accounts on Windows.
 tags:
   - git
   - tech
