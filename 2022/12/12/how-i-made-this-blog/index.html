@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Made This Blog?</title>
+    <meta name="description" content="A guide on my journey towards learning Eleventy and GitHub Pages.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/blog/css/style.css">
+    <link rel="alternate" href="/blog/feed/feed.xml" type="application/atom+xml" title="Jignesh H Dalal">
+    <link rel="alternate" href="/blog/feed/feed.json" type="application/json" title="Jignesh H Dalal">
+  </head>
+  <body>
+     <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a href="/blog" aria-label="Home"><img src="/blog/img/header/profile.svg" alt=""></a>
+<div id="header_title">Jignesh H Dalal</div>
+
+      </header>
+    </div>
+
+     <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+<div id="post_content">
+    <h1>How I Made This Blog?</h1>
+    
+    <div id="under_cover">
+        <span>Published: <time datetime="2022-12-12">12 Dec 2022</time></span>
+        <span>
+          <a href="/blog/tags/git/" class="post-tag">git</a>
+          <a href="/blog/tags/tech/" class="post-tag">tech</a>  
+        </span>
+        
+    </div>
+    <h2 id="requirement" tabindex="-1">Requirement <a class="direct-link" href="#requirement" aria-hidden="true">#</a></h2>
+<p>I simply loved the idea of GitHub Pages which when combined with Jekyll, a static site generator, can help generate a lightweight blogging site. Unfortunately, Jekyll is not officially supported for Windows and the requirement of Ruby adds to the learning curve if one wishes to tread the unofficial route.</p>
+<p>Being somewhat a lazy (read laid-back) person and not a professional writer, I need to keep the whole blogging experience simple enough to help me continue with the journey. And for someone who is already familiar with GitHub being a developer, here is the 1-2-3 requirement:</p>
+<ol>
+<li>Create a new Markdown file for the blog post.</li>
+<li>Add the blog contents.</li>
+<li>Push it to git repository with GitHub Actions performing the heavy lifting of updating the blog hosted under GitHub Pages.</li>
+</ol>
+<h2 id="implementation" tabindex="-1">Implementation <a class="direct-link" href="#implementation" aria-hidden="true">#</a></h2>
+<p>Without further ado, I ended up using following for my blog:</p>
+<h3 id="eleventy" tabindex="-1"><a href="https://www.11ty.dev/docs/">Eleventy</a> <a class="direct-link" href="#eleventy" aria-hidden="true">#</a></h3>
+<p>Eleventy is NodeJS based tool as it uses JavaScript in NodeJS to transform templates into content. It is not a JavaScript framework as it does not recommend nor force your HTML to include any Eleventy-specific client-side JavaScript.</p>
+<p>Bootstrapped my <a href="https://github.com/jignesh-dalal/blog">blog</a> repo with <a href="https://github.com/11ty/eleventy-base-blog">eleventy-base-blog</a>.</p>
+<h4 id="getting-started-with-eleventy" tabindex="-1">Getting started with Eleventy <a class="direct-link" href="#getting-started-with-eleventy" aria-hidden="true">#</a></h4>
+<ul>
+<li><a href="https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/">https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/</a></li>
+<li><a href="https://www.filamentgroup.com/lab/build-a-blog/">https://www.filamentgroup.com/lab/build-a-blog/</a></li>
+<li><a href="https://24ways.org/2018/turn-jekyll-up-to-eleventy/">https://24ways.org/2018/turn-jekyll-up-to-eleventy/</a></li>
+<li><a href="https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/">https://www.aleksandrhovhannisyan.com/blog/useful-11ty-filters/</a></li>
+</ul>
+<h3 id="slate-theme" tabindex="-1"><a href="https://github.com/pages-themes/slate">Slate theme</a> <a class="direct-link" href="#slate-theme" aria-hidden="true">#</a></h3>
+<p>Slate is a <strong>Jekyll</strong> theme for GitHub Pages.</p>
+<p>Being a <strong>Jekyll</strong> theme for GitHub Pages, this required to be ported for use in Eleventy which was done as follows:</p>
+<ul>
+<li>Copied over .sass files for the Slate theme.</li>
+<li>Configured my <a href="https://github.com/jignesh-dalal/blog">blog</a> repo to perform sass to css transformation using the <code>sass</code> npm package.</li>
+</ul>
+<h2 id="deploy-to-github-pages-with-github-actions" tabindex="-1">Deploy to GitHub Pages with GitHub Actions <a class="direct-link" href="#deploy-to-github-pages-with-github-actions" aria-hidden="true">#</a></h2>
+<ul>
+<li><a href="https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/">https://stedman.dev/2020/04/29/make-the-jump-from-jekyll-to-javascript/</a></li>
+<li><a href="https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/">https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/</a></li>
+<li><a href="https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/">https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/</a></li>
+</ul>
+<h2 id="references" tabindex="-1">References <a class="direct-link" href="#references" aria-hidden="true">#</a></h2>
+<ul>
+<li><a href="https://eleventy-chirpy-blog-template.netlify.app/">https://eleventy-chirpy-blog-template.netlify.app/</a></li>
+<li><a href="https://rachelcarmena.github.io/">https://rachelcarmena.github.io/</a></li>
+</ul>
+
+</div>
+<div class="pagination">
+    <span class="next_post">
+        
+            <a href="/blog/2022/12/12/blog-theme/" aria-label="Next post: Blog Theme">&laquo; Blog Theme</a>
+        
+    </span>
+    <span class="previous_post">
+        
+            <a href="/blog/2022/12/12/multiple-github-accounts-in-windows/" aria-label="Previous post: Multiple GitHub Accounts On Windows">Multiple GitHub Accounts On Windows &raquo;</a>
+        
+    </span>
+</div>
+
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+    <a href="https://github.com/jignesh-dalal" title="Github profile"><img src="/blog/img/footer/github.svg" alt=""></a>
+
+    <a href="https://twitter.com/jiigneshdalal" title="Twitter profile"><img src="/blog/img/footer/twitter.svg" alt=""></a>
+
+    <a href="/blog/feed/feed.xml" title="Atom RSS feed"><img src="/blog/img/footer/rss.svg" alt=""></a>
+
+
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
