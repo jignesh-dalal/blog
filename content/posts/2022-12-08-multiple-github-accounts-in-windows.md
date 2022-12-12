@@ -21,7 +21,7 @@ However, this approach can be rather cumbersome in that you have to be updating 
 ## Simple steps to configure multiple GitHub accounts on Windows
 1. Move all your work repositories to a single directory like c:\repos\work
 2. Move all your personal repositories to a single directory like c:\repos\personal
-3. Create a .gitconfig-work file in the same directory as your .gitconfig file. This can be located under c:\Users\{username}\ folder on a Windows PC.
+3. Create a .gitconfig-work file in the same directory as your .gitconfig file. This can be located under c:\Users\\{username}\ folder on a Windows PC.
 ```
 [user]
   name = John Doe
